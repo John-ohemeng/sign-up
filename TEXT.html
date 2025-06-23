@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sign Up</title>
+<style>
+body {
+    background-color:purple;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 25px;
+    text-align: center;
+    margin: 0; /* Remove default body margin */
+}
+
+.signup {
+    border: 2px solid;
+    border-radius: 20px;
+    height: 420px;
+    width: 400px;
+    background: linear-gradient(blue, black);
+    color: white; /* Added for better text visibility on dark background */
+    padding: 20px; /* Add some padding inside the signup box */
+    box-sizing: border-box; /* Include padding in the element's total width and height */
+}
+
+input {
+    height: 50px;
+    width: 350px;
+    border: solid 1px #ccc; /* Added a default border for clarity */
+    border-radius: 20px;
+    text-align: center;
+    font-weight: bold; /* Corrected from font-size */
+    padding: 0 10px; /* Add horizontal padding inside input */
+    box-sizing: border-box; /* Include padding in the element's total width and height */
+    margin-bottom: 20px; /* Space between inputs */
+}
+
+.button {
+    height: 50px;
+    width: 90px;
+    border: 1px solid;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+    cursor: pointer; /* Indicate it's clickable */
+    transition: box-shadow 0.3s ease-in-out; /* Smooth transition for glow */
+}
+
+.button:hover {
+    animation-name: glow;
+    animation-duration: 0.5s; /* Shorter duration for a quicker glow */
+    animation-fill-mode: forwards; /* Keep the end state of the animation */
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 0px green;
+    }
+    to {
+        box-shadow: 0 0 20px green; /* Increased glow intensity */
+    }
+}
+</style>
+<script>
+function sendmsg() {
+    let firstName = document.getElementById("firstName").value;
+    let lastName = document.getElementById("lastName").value;
+    let password = document.getElementById("password").value;
+
+    if (firstName && lastName && password) { // Simple validation
+        alert("WELCOME " + firstName + "!");
+        // In a real application, you would send this data to a server
+        console.log("First Name:", firstName);
+        console.log("Last Name:", lastName);
+        console.log("Password:", password); // Never log passwords in production!
+    } else {
+        alert("Please fill in all fields.");
+    }
+}
+</script>
+</head>
+<body>
+<div class="signup">
+    <h3>SIGN UP</h3>
+    <form onsubmit="event.preventDefault(); sendmsg();"> <input type="text" placeholder="FIRSTNAME" class="input" id="firstName" required>
+        <input type="text" placeholder="LASTNAME" class="input" id="lastName" required>
+        <input type="password" placeholder="PASSWORD" class="input" id="password" required>
+        <button id="submitButton" class="button" type="submit">Submit</button>
+    </form>
+</div>
+</body>
+</html>
